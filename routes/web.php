@@ -22,10 +22,19 @@ Route::get('/inertia-test', function () {
     }
 );
 
+Route::get('/component-test', function () {
+    return Inertia::render('ComponentTest');
+    }
+);
+
 Route::get('/inertia-test/index', [InertiaTestController::class, 'index'])->name('inertia.index');
 Route::get('/inertia-test/show/{id}', [InertiaTestController::class, 'show'])->name('inertia.show');
 Route::post('/inertia', [InertiaTestController::class, 'store'])->name('inertia.store');
 
+Route::get('/inertia/create', [InertiaTestController::class, 'create'])->name('inertia.create');
+
+// 削除契機
+Route::delete('/inertia/{id}', [InertiaTestController::class, 'delete'])->name('inertia.delete');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
